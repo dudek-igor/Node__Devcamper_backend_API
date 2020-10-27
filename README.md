@@ -2,7 +2,9 @@
 
 ---
 
-### Was Used: 
-  - express
-  - dotenv
-  - nodemon
+### Was Used:
+
+- express
+- dotenv
+- nodemon
+- morgan
