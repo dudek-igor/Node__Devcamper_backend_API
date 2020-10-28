@@ -16,6 +16,9 @@ connectDB();
 const app = express();
 
 // Middleware
+// Body-Praser
+app.use(express.json());
+// Morgan only in dev env
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }

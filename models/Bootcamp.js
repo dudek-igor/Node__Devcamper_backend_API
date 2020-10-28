@@ -26,23 +26,24 @@ const BootcampSchema = new mongoose.Schema({
     maxlength: [20, 'Phone number can not be more than 20 characters'],
   },
   email: {
-    type: String
-    match: [/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,'Please add an address']
+    type: String,
+    match: [
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+      'Please add an address',
+    ],
   },
   address: {
     type: String,
-    required: [true, 'Please add an address']
+    required: [true, 'Please add an address'],
   },
   location: {
     type: {
       type: String,
       enum: ['Point'], // 'location.type' must be 'Point'
-      required: true
     },
     coordinates: {
       type: [Number],
-      required: true,
-      index: '2sphere'
+      index: '2sphere',
     },
     formattedAddress: String,
     street: String,
@@ -52,18 +53,18 @@ const BootcampSchema = new mongoose.Schema({
     country: String,
   },
   careers: {
-    type:[String],
-    required:true,
+    type: [String],
+    required: true,
     enum: [
       'Web Development',
       'Mobile Development',
       'UI/UX',
       'Data Science',
       'Business',
-      'Other'
-    ]
+      'Other',
+    ],
   },
-  avargeRating:{
+  avargeRating: {
     type: Number,
     min: [1, 'Rating must be at least 1'],
     max: [10, 'Rating must can not be more than 10'],
@@ -71,9 +72,9 @@ const BootcampSchema = new mongoose.Schema({
   avargeRating: Number,
   photo: {
     type: String,
-    default: 'no-photo.jpg'
+    default: 'no-photo.jpg',
   },
-  housing:{
+  housing: {
     type: Boolean,
     default: false,
   },
@@ -87,9 +88,8 @@ const BootcampSchema = new mongoose.Schema({
   },
   createdAt: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
-module.exports = mongoose.model('Bootcamp',BootcampSchema )
-
+module.exports = mongoose.model('Bootcamp', BootcampSchema);
