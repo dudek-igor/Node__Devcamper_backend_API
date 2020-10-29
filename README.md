@@ -8,3 +8,7 @@
 - dotenv
 - nodemon
 - morgan
+- colors
+- mongoose
+- slugify
+- node-gecoder with MapQuest
