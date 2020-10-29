@@ -71,7 +71,6 @@ const BootcampSchema = new mongoose.Schema({
     min: [1, 'Rating must be at least 1'],
     max: [10, 'Rating must can not be more than 10'],
   },
-  avargeRating: Number,
   photo: {
     type: String,
     default: 'no-photo.jpg',
@@ -92,6 +91,7 @@ const BootcampSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  averageCost: Number,
 });
 
 // Create bootcamp slug from the name
