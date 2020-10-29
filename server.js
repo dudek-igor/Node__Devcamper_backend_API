@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
+const errorHandler = require('./middlewares/errorHandler');
 const colors = require('colors');
 const connectDB = require('./config/db');
 
@@ -15,7 +16,7 @@ connectDB();
 // Initial server
 const app = express();
 
-// Middleware
+// Middleware before routes
 // Body-Praser
 app.use(express.json());
 // Morgan only in dev env
@@ -25,6 +26,9 @@ if (process.env.NODE_ENV === 'development') {
 
 // Mount routers
 app.use('/api/v1/bootcamps', bootcamps);
+
+// Middleware after routes
+app.use(errorHandler);
 
 //Added Listening
 const PORT = process.env.PORT || 5000;
