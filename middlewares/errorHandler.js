@@ -1,10 +1,11 @@
 const ErrorResponse = require('../utils/errorResponse');
+const slugify = require('slugify');
 
 // @desc Custom Error Middleware
 const errorHandler = (err, req, res, next) => {
   let error = { ...err };
   // Log to console for dev
-  console.log(error);
+  console.log(err);
   // Mongoose bad ObjectId
   if (err.name === 'CastError') {
     const message = `Resource not found with id of ${err.value}`;
@@ -24,7 +25,7 @@ const errorHandler = (err, req, res, next) => {
   // Defeult Error
   res.status(error.statusCode || 500).json({
     success: false,
-    error: error.message || 'Server Error',
+    error: err.message || 'Server Error',
   });
   next();
 };
