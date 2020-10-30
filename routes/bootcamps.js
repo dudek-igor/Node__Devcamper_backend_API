@@ -8,7 +8,13 @@ const {
   getBootcampInRadius,
 } = require('../controllers/bootcamps');
 
+// Include other ressource routers
+const courseRouter = require('./courses');
+
 const router = express.Router();
+
+// Re-route into other resource routers
+router.use('/:bootcampId/courses', courseRouter);
 
 // Added Methods to route
 router.route('/').get(getBootcamps).post(createBootcamp);
