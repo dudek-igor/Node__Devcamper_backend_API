@@ -11,4 +11,4 @@
 - colors
 - mongoose
 - slugify
-- node-gecoder with MapQuest
+- node-geocoder with MapQuest
