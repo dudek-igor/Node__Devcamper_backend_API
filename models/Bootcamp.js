@@ -32,7 +32,7 @@ const BootcampSchema = new mongoose.Schema(
       type: String,
       match: [
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-        'Please add an address',
+        'Please add an email',
       ],
     },
     address: {

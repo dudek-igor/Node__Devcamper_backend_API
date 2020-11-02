@@ -3,6 +3,8 @@ const Bootcamp = require('../models/Bootcamp');
 const asyncHandler = require('../middlewares/async');
 const ErrorResponse = require('../utils/errorResponse');
 
+// Methods
+
 // @desc     GET all courses
 // @route    GET /api/v1/courses
 // @route    GET /api/v1/bootcamps/:bootcampId/courses

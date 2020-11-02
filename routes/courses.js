@@ -8,6 +8,7 @@ const {
 } = require('../controllers/courses');
 // require middlewares
 const advanceResults = require('../middlewares/advanceResults');
+const { protect, authroize } = require('../middlewares/auth');
 // require models
 const Course = require('../models/Course');
 
@@ -22,11 +23,11 @@ router
     }),
     getCourses
   )
-  .post(createCourse);
+  .post(protect, authroize('admin', 'publisher'), createCourse);
 router
   .route('/:id')
   .get(getSingleCourse)
-  .put(updateCourse)
-  .delete(deleteCourse);
+  .put(protect, authroize('admin', 'publisher'), updateCourse)
+  .delete(protect, authroize('admin', 'publisher'), deleteCourse);
 
 module.exports = router;

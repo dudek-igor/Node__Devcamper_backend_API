@@ -12,3 +12,6 @@
 - mongoose
 - slugify
 - node-geocoder with MapQuest
+- express-fileupload
+- dcrypt
+- jsonwebtoken
