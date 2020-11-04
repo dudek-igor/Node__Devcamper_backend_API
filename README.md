@@ -15,3 +15,5 @@
 - express-fileupload
 - dcrypt
 - jsonwebtoken
+- nodemailer
+- cookie-parser
