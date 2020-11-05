@@ -16,11 +16,13 @@ const Bootcamp = require('../models/Bootcamp');
 
 // Include other ressource routers
 const courseRouter = require('./courses');
+const reviewsRouter = require('./reviews');
 
 const router = express.Router();
 
 // Re-route into other resource routers
 router.use('/:bootcampId/courses', courseRouter);
+router.use('/:bootcampId/reviews', reviewsRouter);
 
 // Added Methods to route
 router
