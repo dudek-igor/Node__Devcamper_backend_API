@@ -17,3 +17,8 @@
 - jsonwebtoken
 - nodemailer
 - cookie-parser
+- express-mongo-sanitize
+- helmet
+- xss-clean
+- express-rate-limit
+- hpp

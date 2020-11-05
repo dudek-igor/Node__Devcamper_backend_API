@@ -3,6 +3,12 @@ const path = require('path');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 const fileUpload = require('express-fileupload');
+const mongoSanitize = require('express-mongo-sanitize');
+const helmet = require('helmet');
+const xss = require('xss-clean');
+const hpp = require('hpp');
+const cors = require('cors');
+const rateLimit = require('express-rate-limit');
 const cookieParser = require('cookie-parser');
 const errorHandler = require('./middlewares/errorHandler');
 const colors = require('colors');
@@ -30,6 +36,23 @@ app.use(cookieParser());
 app.use(express.json());
 // File-Upload
 app.use(fileUpload());
+// Sanitize data
+app.use(mongoSanitize());
+// Set security headers via Helmet
+app.use(helmet());
+// Prevent XSS attacks
+app.use(xss());
+//Rate Limiter
+const limiter = rateLimit({
+  windowMS: 10 * 60 * 1000, // 10 mins
+  max: 100,
+});
+app.use(limiter);
+// Prevent http param pollution
+app.use(hpp());
+// Enable CORS
+app.use(cors());
+
 // Morgan only in dev env
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));

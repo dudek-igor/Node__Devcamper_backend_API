@@ -5,10 +5,10 @@ const slugify = require('slugify');
 const errorHandler = (err, req, res, next) => {
   let error = { ...err };
   // Log to console for dev
-  // console.log(err);
+  console.log(err);
   // Mongoose bad ObjectId
   if (err.name === 'CastError') {
-    const message = `Resource not found with id of ${err.value}`;
+    const message = `Resource not found`;
     error = new ErrorResponse(message, 404);
   }
   // Mongoose duplicate key
