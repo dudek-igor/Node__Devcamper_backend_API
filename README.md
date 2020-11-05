@@ -4,6 +4,8 @@
 
 ## [Link to Postman docs](https://documenter.getpostman.com/view/11495199/TVYQ2a88)
 
+## [Link to Heroku](https://devcampers-igor-dudek.herokuapp.com/)
+
 ## Usage:
 
 1. Rename "config/config.env.env" to "config/config.env" and update the values/settings to your own,
@@ -32,3 +34,4 @@
 - xss-clean
 - express-rate-limit
 - hpp
+- cors
