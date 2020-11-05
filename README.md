@@ -1,6 +1,16 @@
 # Backend project - Devcamper API
 
----
+> Bootcamp directory website
+
+## [Link to Postman docs](https://documenter.getpostman.com/view/11495199/TVYQ2a88)
+
+## Usage:
+
+1. Rename "config/config.env.env" to "config/config.env" and update the values/settings to your own,
+2. Install dependecies - `npm install`
+3. Run app:
+   - in dev - `npm run dev`
+   - in prod - `npm start`
 
 ### Was Used:
 
